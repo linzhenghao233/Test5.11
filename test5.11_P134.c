@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void cube(double num);
+void Temperatures(double df);
 
 int main(void) {
 //1.
@@ -66,6 +67,33 @@ int main(void) {
 	//scanf_s("%lf", &num);
 	//cube(num);
 
+//8.
+	//int num8, num9;
+
+	//printf("输入一个整数去求模其它数：");
+	//scanf_s("%d", &num8);
+	//printf("输入一个数求它的模：");
+	//scanf_s("%d", &num9);
+	//while (num9 > 0) {
+	//	printf("%d %% %d = %d\n", num9, num8, num9 % num8);
+	//	printf("输入一个数求它的模（输入小于等于0的数结束程序）：");
+	//	scanf_s("%d", &num9);
+	//}
+	//printf("结束。");
+
+//9.
+	int status;
+	double df;
+
+	printf("输入一个华氏温度：");
+	status = scanf_s("%lf", &df);
+	while (status == 1) {
+		Temperatures(df);
+		printf("输入一个华氏温度（输入一个非数字退出程序）：");
+		status = scanf_s("%lf", &df);
+	}
+	printf("结束！");
+
 	return 0;
 }
 
@@ -73,6 +101,16 @@ void cube(double num) {
 	double num2;
 	num2 = num * num * num;
 	printf("%lf的立方值是%lf", num, num2);
+
+	return 0;
+}
+
+void Temperatures(double df) {
+	double dc, kt;
+
+	dc = 5.0 / 9.0 * (df - 32.0);	//摄氏度
+	kt = dc + 273.16;					//开氏温度
+	printf("%.2lf华氏温度 = %.2lf摄氏度 = %.2lf开氏温度\n", df, dc, kt);
 
 	return 0;
 }
